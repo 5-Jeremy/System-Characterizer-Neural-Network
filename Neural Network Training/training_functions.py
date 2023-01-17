@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+from sklearn import preprocessing
 
 def summarize_data(dataset):
     # Count the number of systems with overshoot, undershoot, and neither
@@ -14,3 +16,14 @@ def summarize_data(dataset):
     print("Models with overshoot: " + str(overshoot_cnt) + "/" + str((overshoot_cnt/num_entries)*100) + "%")
     print("Models with undershoot: " + str(undershoot_cnt) + "/" + str((undershoot_cnt/num_entries)*100) + "%")
     print("Models with neither: " + str(neither_cnt) + "/" + str((neither_cnt/num_entries)*100) + "%")
+
+def get_encoded_labels_overshoot_undershoot_classification(dataset):
+    labels = np.empty((dataset.shape[0],3))
+    for i in range(dataset.shape[0]):
+        if dataset['Overshoot'][i] > 1e-5:
+            labels[i,:] = [0, 1, 0]
+        elif dataset['Undershoot'][i] > 1e-5:
+            labels[i,:] = [0, 0, 1]
+        else:
+            labels[i,:] = [1, 0, 0]
+    return labels
