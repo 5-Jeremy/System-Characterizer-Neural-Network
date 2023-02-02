@@ -1,2 +1,2 @@
 # System-Characterizer-Neural-Network
- A set of neural network models designed to identify the characteristics of LTI systems identified by the coefficients of their transfer functions.
+This is a small project testing the ability of neural networks to identify the characteristics of LTI systems based on the coefficients of their transfer functions. For more information, see the README files in the subfolders. This project was inspired from taking Kumaran Ponnambalam's LinkedIn Learning courses "Deep Learning: Getting Started" and "Deep Learning: Model Optimization and Tuning"
